@@ -5,6 +5,19 @@
     color: #666666;
 }
 
+.list{
+    display: none;
+    position: absolute;
+    background-color: #333;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+}
+
+ul:hover .list{
+    display: block;
+}
+
 body{
     color: #666666;
     background-color: #333;
