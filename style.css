@@ -2,7 +2,9 @@
     margin: 0;
     font-family: sans-serif;
     padding: 0;
-    color: #666666;
+    color: #c5cbff;
+    text-align: justify;
+    list-style-type: none;
 }
 
 .list{
@@ -14,13 +16,16 @@
     border-width: 1px;
 }
 
+p{
+    font-size: 14px;
+}
+
 ul:hover .list{
     display: block;
 }
 
 body{
-    color: #666666;
-    background-color: #333;
+    background-color: #0d0a14;
 }
 
 h3{
@@ -40,7 +45,6 @@ h5{
 
 section{
     height: 85vh;
-    border-style: solid;
     border-width: 1px;
 }
 
@@ -57,7 +61,10 @@ nav>ul{
 }
 
 nav {
+    display: flex;
     display: block;
+    background-color: #31166e;
+    height: 60px;
 }
 
 nav>ul>li>ul{
