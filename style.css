@@ -7,6 +7,10 @@
     list-style-type: none;
 }
 
+a{
+    text-decoration: none;
+}
+
 .list{
     display: none;
     position: absolute;
@@ -50,21 +54,36 @@ section{
 
 nav>ul>li{
     display: inline-block;
+    padding: 20px;
     text-align: center;
+    height: 100%;
+}
+
+nav>ul>li:hover{
+    background-color: #0d0a14;
+}
+
+nav>ul>li:hover a{
+    color: #ffffff;
+}
+
+nav>ul>li>a{
+    color: #0d0a14;
 }
 
 nav>ul{
+    display: flex;
+    align-items: center;
     width: fit-content;
+    margin: 0 auto; /* This will center the ul horizontally */
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 nav {
     display: flex;
-    display: block;
-    background-color: #31166e;
+    align-items: center;
     height: 60px;
+    background-color: #ffffff;
 }
 
 nav>ul>li>ul{
