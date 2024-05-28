@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    font-family: sans-serif;
+    padding: 0;
+    color: #666666;
+}
+
+body{
+    color: #666666;
+    background-color: #333;
+}
+
+h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h4{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h5{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+section{
+    height: 85vh;
+    border-style: solid;
+    border-width: 1px;
+}
+
+nav>ul>li{
+    display: inline-block;
+    text-align: center;
+}
+
+nav>ul{
+    width: fit-content;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav {
+    display: block;
+}
+
+nav>ul>li>ul{
+    position: absolute;  
+    display: none;
+}
+
+footer{
+    height: 1.5em;
+    background-color: white;
+}
+
+html{
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+
+#study{
+    scroll-snap-align: start;
+}
+
+#skills{
+    scroll-snap-align: start;
+}
+
+#xp{
+    scroll-snap-align: start;
+}
+
+#port{
+    scroll-snap-align: start;
+}
+
+#adress{
+    scroll-snap-align: start;
+}
+
+nav{
+    scroll-snap-align: start;
+}
