@@ -57,7 +57,8 @@ ul h5:hover ~ .list *{
 }
 
 ul h5:hover{
-    color: #4c00ff;
+    color: #0d0a14;
+    background-color: #ffffff;
 }
 
 
@@ -89,6 +90,7 @@ section{
 section#resumo{
     height: calc(85vh - 60px);
     border-width: 1px;
+
 }
 
 nav>ul>li{
@@ -173,8 +175,10 @@ nav{
 
 .coin{
     width: 30vw;
+    margin-top: auto;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: auto;
 }
 
 .resumo-content > *{
@@ -205,8 +209,6 @@ nav{
 
     .container {
         order: 2; 
-        margin-top: auto;
-        margin-bottom: auto;
     }
 }
 
@@ -230,4 +232,8 @@ nav{
         margin-top: auto;
         margin-bottom: auto;
     }
+}
+
+.droplist{
+    background-color: #4c00ff;
 }
