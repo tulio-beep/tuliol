@@ -189,16 +189,45 @@ nav{
 }
 
 #resumo p{
-    font-size: 3vmin;
+    font-size: 3.3vmin;
 }
 
 @media (max-width: 400px) {
     .resumo-content{
-        display: inline-block;
+        display: flex;
+        flex-direction: column;
     }
 
     #resumo p{
-        font-size: 13px;
+        font-size: 15px;
         padding-left: 30px;
+    }
+
+    .container {
+        order: 2; 
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+}
+
+@media (max-width: 350px) {
+    .resumo-content{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #resumo h1{
+        font-size: x-large;
+    }
+
+    #resumo p{
+        font-size: 12px;
+        padding-left: 30px;
+    }
+
+    .container {
+        order: 2; 
+        margin-top: auto;
+        margin-bottom: auto;
     }
 }
