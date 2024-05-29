@@ -173,13 +173,32 @@ nav{
 
 .coin{
     width: 30vw;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .resumo-content > *{
     align-self: center;
-    padding-right: 30px
+    justify-content: center;
+    vertical-align:middle;
+    padding-right: 30px;
 }
 
 #resumo h1{
     font-size: xx-large;
+}
+
+#resumo p{
+    font-size: 3vmin;
+}
+
+@media (max-width: 400px) {
+    .resumo-content{
+        display: inline-block;
+    }
+
+    #resumo p{
+        font-size: 13px;
+        padding-left: 30px;
+    }
 }
