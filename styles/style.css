@@ -1,6 +1,7 @@
+
 *{
     margin: 0;
-    font-family: sans-serif;
+    font-family: Quicksand, sans-serif;
     padding: 0;
     color: #ffffff;
     text-align: justify;
@@ -61,7 +62,7 @@ ul h5:hover{
 
 
 body{
-    background-color: #0d0a14;
+    background-color: #181930;
 }
 
 h3{
@@ -82,6 +83,11 @@ h5{
 
 section{
     height: 85vh;
+    border-width: 1px;
+}
+
+section#resumo{
+    height: calc(85vh - 60px);
     border-width: 1px;
 }
 
@@ -158,4 +164,22 @@ html{
 
 nav{
     scroll-snap-align: start;
+}
+
+.resumo-content{
+    display: flex;
+    height: 100%;
+}
+
+.coin{
+    width: 30vw;
+}
+
+.resumo-content > *{
+    align-self: center;
+    padding-right: 30px
+}
+
+#resumo h1{
+    font-size: xx-large;
 }

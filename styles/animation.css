@@ -3,13 +3,12 @@
 */
 
 :root {
-
     --lowlight: #111;
     --side: #9b791b;
     --side-dark: #120e08;
     --coin-size: 10rem;
-    --coin-face: url('img/real.png');
-    --coin-face2: url('img/coroa.png');
+    --coin-face: url('../img/coroa.png');
+    --coin-face2: url('../img/real.png');
   }
   
   .coin {
