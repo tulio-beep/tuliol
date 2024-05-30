@@ -20,7 +20,8 @@ a {
   border-width: 1px;
 }
 
-p {
+p,
+h5 {
   font-size: 14px;
 }
 
@@ -199,7 +200,8 @@ h1 {
   padding: 15px;
 }
 
-p {
+p,
+h5 {
   font-size: 3vmin;
 }
 h2 {
@@ -218,7 +220,7 @@ h2 {
     height: 70vh;
   }
 
-  section#resumo,
+  .resumo-content,
   section#study,
   section#skills,
   section#xp,
@@ -232,7 +234,8 @@ h2 {
     padding-right: 0px;
   }
 
-  p {
+  p,
+  h5 {
     font-size: 15px;
   }
 
@@ -278,7 +281,8 @@ h2 {
     font-size: 23px;
   }
 
-  p {
+  p,
+  h5 {
     font-size: 12px;
   }
   h2 {
