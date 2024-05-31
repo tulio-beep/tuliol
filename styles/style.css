@@ -188,22 +188,18 @@ nav {
 }
 
 .coin {
-  width: 30vw;
+  width: 35vw;
   margin-left: auto;
   margin-right: auto;
 }
 
-.b3-lines{
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.resumo-content div {
+.resumo-content div.text {
   align-self: center;
   justify-content: center;
   vertical-align: middle;
   padding-right: 30px;
 }
+
 
 h1 {
   background-color: #0d0a14;
@@ -220,9 +216,34 @@ h2,h3 {
 }
 
 .container {
-  margin-top: auto;
-  margin-bottom: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+svg{
+    position: absolute;
+}
+
+.container .candy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: calc(35vw + 30px);
+    height: auto;
+}
+
+@media (max-width: 700px) {
+    .container .candy{
+        width: 100%;
+        left:0;
+        opacity: 15%;
+    }
+}
+
 
 @media (max-width: 400px) {
   .resumo-content {
@@ -241,7 +262,7 @@ h2,h3 {
     margin-right: 15px;
   }
 
-  .resumo-content div {
+  .resumo-content div.text {
     padding-right: 0px;
   }
 
@@ -278,7 +299,7 @@ h2,h3 {
     margin-right: 15px;
   }
 
-  .resumo-content div {
+  .resumo-content div.text {
     padding-right: 0px;
   }
 
