@@ -30,7 +30,7 @@ Adaptado de: Aedan Xaelan
     width: var(--coin-size);
     border-radius: 50%;
     background-color: var(--face);
-    animation: spin 1.5s linear infinite;
+    animation: spin 2s linear infinite;
     background-image: var(--coin-face);
     background-size: 100% 100%;
     background-position: center;

@@ -72,7 +72,7 @@ body {
   background-color: #181930;
 }
 
-h3,
+h3, nav 
 h2 {
   padding-top: 20px;
   margin-bottom: 10px;
@@ -207,13 +207,14 @@ h1 {
   background-color: #0d0a14;
   font-size: 5vmin;
   padding: 15px;
+  box-shadow: 5px 3px 3px black;
 }
 
 p,
 h5,h4 {
   font-size: 3vmin;
 }
-h2,h3 {
+h2,h3, nav {
   font-size: 4vmin;
 }
 
@@ -271,7 +272,7 @@ svg{
     padding-right: 0px;
   }
 
-  p,
+  p,nav, 
   h5,h4 {
     font-size: 15px;
   }
@@ -280,7 +281,7 @@ svg{
     font-size: 26px;
   }
 
-  h2,h3 {
+  h2,h3{
     font-size: 20px;
   }
 
@@ -322,6 +323,11 @@ svg{
   h5, h4 {
     font-size: 12px;
   }
+
+  nav {
+    font-size: 14px;
+  }
+
   h2,h3 {
     font-size: 18px;
   }
