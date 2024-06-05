@@ -160,6 +160,11 @@ footer {
   background-color: white;
 }
 
+footer p{
+  text-align: center;
+  color: #000;
+}
+
 html {
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
