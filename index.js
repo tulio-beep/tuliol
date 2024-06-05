@@ -36,7 +36,7 @@ function clearBlock(col, row,) {
 
 
 ctx.fillStyle = 'white';
-ctx.font = '24px Arial';
+ctx.font = '24px Quicksand';
 ctx.textAlign = 'center';
 ctx.fillText('Pressione WASD para iniciar.', canvasWidth / 2, canvasHeight / 2);
 
@@ -174,7 +174,7 @@ function gameOver() {
   clearInterval(gameLoop);
   gameLoop = null;
   ctx.fillStyle = 'white';
-  ctx.font = '24px Arial';
+  ctx.font = '24px Quicksand';
   ctx.textAlign = 'center';
   ctx.fillText('Game Over!', canvasWidth / 2, canvasHeight / 2);
   gameStarted = false
