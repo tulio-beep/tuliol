@@ -46,6 +46,7 @@ const s_color = 'white';
 //Cor da Comida
 const f_color = 'red';
 
+let direction_;
 let direction;
 let gameLoop = null;
 
