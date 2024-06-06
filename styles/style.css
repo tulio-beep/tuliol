@@ -32,13 +32,23 @@ h5,h4, .list {
   font-size: 14px;
 }
 
-li:hover .list {
+li:hover .list{
   left: -15px;
   margin-top: 10px;
   display: block;
   position: absolute;
   padding: 10px;
 }
+
+.list:hover{
+  left: -15px;
+  margin-top: 10px;
+  display: block;
+  position: absolute;
+  padding: 10px;
+  z-index: 1;
+}
+
 
 li:hover .list ul li {
   padding: 10px;
