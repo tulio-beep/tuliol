@@ -60,12 +60,12 @@ document.addEventListener('keydown', event => {
   const key = event.key.toLowerCase();
 
   if (gameLoop === null && ['w', 'a', 's', 'd'].includes(key)) {
-    direction = key === 'w' ? 'cima' : key === 's' ? 'baixo' : key === 'a' ? 'esquerda' : 'direita';
+    direction_ = key === 'w' ? 'cima' : key === 's' ? 'baixo' : key === 'a' ? 'esquerda' : 'direita';
     gameLoop = setInterval(update, 100);
   }
 
   if (['w', 'a', 's', 'd'].includes(key)) {
-    direction = key === 'w' && direction !== 'baixo' ? 'cima' :
+    direction_ = key === 'w' && direction !== 'baixo' ? 'cima' :
       key === 's' && direction !== 'cima' ? 'baixo' :
         key === 'a' && direction !== 'direita' ? 'esquerda' :
           key === 'd' && direction !== 'esquerda' ? 'direita' : direction;
@@ -75,6 +75,7 @@ document.addEventListener('keydown', event => {
 // Função de atualização
 function update() {
   // Move a cabeça da cobra
+  direction = direction_;
   snake.body.push({ x: snake.head.x, y: snake.head.y});
   switch (direction) {
     case 'esquerda':
