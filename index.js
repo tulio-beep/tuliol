@@ -3,7 +3,7 @@ const ctx = canvas.getContext("2d");
 
 // Defina o tamanho do canvas
 const canvasWidth = (canvas.width = window.innerWidth);
-const canvasHeight = (canvas.height = window.innerHeight*0.8);
+const canvasHeight = (canvas.height = window.innerHeight * 0.8);
 
 // Defina o tamanho do bloco
 const blockSize = 20;
@@ -12,7 +12,7 @@ const rows = Math.floor(canvasHeight / blockSize);
 
 // Desenha a grade para visualização
 function drawGrid() {
-  ctx.strokeStyle = '#bbb';  // Cor das linhas da grade
+  ctx.strokeStyle = "#bbb"; // Cor das linhas da grade
   for (let col = 0; col < columns; col++) {
     for (let row = 0; row < rows; row++) {
       ctx.strokeRect(col * blockSize, row * blockSize, blockSize, blockSize);
@@ -28,51 +28,65 @@ function drawBlock(col, row, color) {
   ctx.fillRect(x, y, blockSize, blockSize);
 }
 
-function clearBlock(col, row,) {
+function clearBlock(col, row) {
   const x = col * blockSize;
   const y = row * blockSize;
   ctx.clearRect(x, y, blockSize, blockSize);
 }
 
-
-ctx.fillStyle = 'white';
-ctx.font = '24px Quicksand';
-ctx.textAlign = 'center';
-ctx.fillText('Pressione WASD ou Toque para iniciar.', canvasWidth / 2, canvasHeight / 2);
+ctx.fillStyle = "white";
+ctx.font = "24px Quicksand";
+ctx.textAlign = "center";
+ctx.fillText(
+  "Pressione WASD ou Toque para iniciar.",
+  canvasWidth / 2,
+  canvasHeight / 2
+);
 
 //Cor da Cobra
-const s_color = 'white';
+const s_color = "white";
 
 //Cor da Comida
-const f_color = 'red';
+const f_color = "red";
 
 let direction_;
 let direction;
 let gameLoop = null;
 
-gameStarted = false
+gameStarted = false;
 
 // Listener de teclado
-document.addEventListener('keydown', event => {
+document.addEventListener("keydown", (event) => {
   const key = event.key.toLowerCase();
 
-  if (!gameStarted && (['w', 'a', 's', 'd'].includes(key))) {
+  if (!gameStarted && ["w", "a", "s", "d"].includes(key)) {
     start();
     gameStarted = true;
   }
 
-
-
-  if (gameLoop === null && ['w', 'a', 's', 'd'].includes(key)) {
-    direction_ = key === 'w' ? 'cima' : key === 's' ? 'baixo' : key === 'a' ? 'esquerda' : 'direita';
+  if (gameLoop === null && ["w", "a", "s", "d"].includes(key)) {
+    direction_ =
+      key === "w"
+        ? "cima"
+        : key === "s"
+        ? "baixo"
+        : key === "a"
+        ? "esquerda"
+        : "direita";
     gameLoop = setInterval(update, 100);
   }
 
-  if (['w', 'a', 's', 'd'].includes(key)) {
-    direction_ = key === 'w' && direction !== 'baixo' ? 'cima' :
-      key === 's' && direction !== 'cima' ? 'baixo' :
-        key === 'a' && direction !== 'direita' ? 'esquerda' :
-          key === 'd' && direction !== 'esquerda' ? 'direita' : direction;
+  if (["w", "a", "s", "d"].includes(key)) {
+    direction_ =
+      key === "w" && direction !== "baixo"
+        ? "cima"
+        : key === "s" && direction !== "cima"
+        ? "baixo"
+        : key === "a" && direction !== "direita"
+        ? "esquerda"
+        : key === "d" && direction !== "esquerda"
+        ? "direita"
+        : direction;
   }
 });
 
@@ -80,18 +94,18 @@ document.addEventListener('keydown', event => {
 function update() {
   // Move a cabeça da cobra
   direction = direction_;
-  snake.body.push({ x: snake.head.x, y: snake.head.y});
+  snake.body.push({ x: snake.head.x, y: snake.head.y });
   switch (direction) {
-    case 'esquerda':
+    case "esquerda":
       snake.head.x--;
       break;
-    case 'direita':
+    case "direita":
       snake.head.x++;
       break;
-    case 'cima':
+    case "cima":
       snake.head.y--;
       break;
-    case 'baixo':
+    case "baixo":
       snake.head.y++;
       break;
   }
@@ -99,8 +113,12 @@ function update() {
   drawBlock(snake.head.x, snake.head.y, s_color);
 
   // Se a cobra bater nas paredes
-  if (snake.head.x >= columns || snake.head.x < 0 ||
-    snake.head.y >= rows || snake.head.y < 0) {
+  if (
+    snake.head.x >= columns ||
+    snake.head.x < 0 ||
+    snake.head.y >= rows ||
+    snake.head.y < 0
+  ) {
     gameOver();
     return; // Fim do jogo
   }
@@ -117,32 +135,30 @@ function update() {
   if (snake.head.x === food.x && snake.head.y === food.y) {
     // A cobra cresce
     // Gera uma nova posição para a comida
-    snake.size++
+    snake.size++;
     food = {
       x: parseInt(Math.random() * columns),
-      y: parseInt(Math.random() * rows)
+      y: parseInt(Math.random() * rows),
     };
 
-
-    while(verifyBody()){
+    while (verifyBody()) {
       food = {
         x: parseInt(Math.random() * columns),
-        y: parseInt(Math.random() * rows)
+        y: parseInt(Math.random() * rows),
       };
     }
 
-    function verifyBody(){
-    let answer = false
+    function verifyBody() {
+      let answer = false;
       for (let i = 0; i < snake.body.length; i++) {
         if (food.x === snake.body[i].x && food.y === snake.body[i].y) {
-          answer = true
+          answer = true;
         }
       }
-      return answer
+      return answer;
     }
 
     drawBlock(food.x, food.y, f_color);
-    
   } else {
     // Se não, remove o bloco da cauda
     let tail = snake.body.shift();
@@ -152,20 +168,19 @@ function update() {
 
 // Loop principal do jogo
 function start() {
-  
   // Posição inicial da cobra
   x_ = parseInt(Math.random() * columns);
   y_ = parseInt(Math.random() * rows);
   snake = {
     head: { x: x_, y: y_ },
     body: [],
-    size: 1
+    size: 1,
   };
 
   // Posição inicial da comida
   food = {
     x: parseInt(Math.random() * columns),
-    y: parseInt(Math.random() * rows)
+    y: parseInt(Math.random() * rows),
   };
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -178,53 +193,49 @@ function start() {
 function gameOver() {
   clearInterval(gameLoop);
   gameLoop = null;
-  ctx.fillStyle = 'white';
-  ctx.font = '24px Quicksand';
-  ctx.textAlign = 'center';
-  ctx.fillText('Game Over!', canvasWidth / 2, canvasHeight / 2);
-  gameStarted = false
+  ctx.fillStyle = "white";
+  ctx.font = "24px Quicksand";
+  ctx.textAlign = "center";
+  ctx.fillText("Game Over!", canvasWidth / 2, canvasHeight / 2);
+  gameStarted = false;
 }
 
-canvas.addEventListener('touchstart', handleTouch, false);
+canvas.addEventListener("touchstart", handleTouch, false);
 const rect = canvas.getBoundingClientRect();
-const x_ref = rect.width/3;
-const y_ref = rect.height/3;
+const x_ref = rect.width / 3;
+const y_ref = rect.height / 3;
 
 function handleTouch(event) {
   event.preventDefault();
   const touch = event.touches[0];
-  const x = touch.clientX-rect.left;
-  const y = touch.clientY-rect.top;
-  if ((x > x_ref && x < x_ref * 2) && (y > y_ref * 2) && direction !== "cima") {
-      direction_ = "baixo";
-      if (!gameStarted) {
-        gameStarted = true;
-        start();
-      }
-      console.log('baixo')
+  const x = touch.clientX - rect.left;
+  const y = touch.clientY - rect.top;
+  if (x > x_ref && x < x_ref * 2 && y > y_ref * 2 && direction !== "cima") {
+    direction_ = "baixo";
+    if (!gameStarted) {
+      gameStarted = true;
+      start();
+    }
   }
-  if ((x > x_ref && x < x_ref * 2) && (y < y_ref) && direction !== "baixo") {
-      direction_ = "cima";
-      if (!gameStarted) {
-        gameStarted = true;
-        start(); 
-      }
-      console.log('cima')
+  if (x > x_ref && x < x_ref * 2 && y < y_ref && direction !== "baixo") {
+    direction_ = "cima";
+    if (!gameStarted) {
+      gameStarted = true;
+      start();
+    }
   }
-  if ((y > y_ref && y < y_ref * 2) && (x < x_ref) && direction !== "direita") {
-      direction_ = "esquerda";
-      if (!gameStarted) {
-        gameStarted = true;  
-        start();
-      }
-      console.log('direita')
+  if (y > y_ref && y < y_ref * 2 && x < x_ref && direction !== "direita") {
+    direction_ = "esquerda";
+    if (!gameStarted) {
+      gameStarted = true;
+      start();
+    }
   }
-  if ((y > y_ref && y < y_ref * 2) && (x > x_ref * 2) && direction !== "esquerda") {
-      direction_ = "direita";
-      if (!gameStarted) {
-        gameStarted = true;
-        start();
-      }
-      console.log('esquerda')
+  if (y > y_ref && y < y_ref * 2 && x > x_ref * 2 && direction !== "esquerda") {
+    direction_ = "direita";
+    if (!gameStarted) {
+      gameStarted = true;
+      start();
+    }
   }
 }
