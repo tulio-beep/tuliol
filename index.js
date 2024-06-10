@@ -3,7 +3,7 @@ const ctx = canvas.getContext("2d");
 
 // Defina o tamanho do canvas
 const canvasWidth = (canvas.width = window.innerWidth);
-const canvasHeight = (canvas.height = window.innerHeight*0.8);
+const canvasHeight = (canvas.height = window.innerHeight * 0.8);
 
 // Defina o tamanho do bloco
 const blockSize = 20;
@@ -28,51 +28,42 @@ function drawBlock(col, row, color) {
   ctx.fillRect(x, y, blockSize, blockSize);
 }
 
-function clearBlock(col, row,) {
+function clearBlock(col, row) {
   const x = col * blockSize;
   const y = row * blockSize;
   ctx.clearRect(x, y, blockSize, blockSize);
 }
-
 
 ctx.fillStyle = 'white';
 ctx.font = '24px Quicksand';
 ctx.textAlign = 'center';
 ctx.fillText('Pressione WASD ou Toque para iniciar.', canvasWidth / 2, canvasHeight / 2);
 
-//Cor da Cobra
+// Cor da Cobra
 const s_color = 'white';
 
-//Cor da Comida
+// Cor da Comida
 const f_color = 'red';
 
 let direction_;
 let direction;
 let gameLoop = null;
-
-gameStarted = false
+let gameStarted = false;
 
 // Listener de teclado
 document.addEventListener('keydown', event => {
   const key = event.key.toLowerCase();
 
-  if (!gameStarted && (['w', 'a', 's', 'd'].includes(key))) {
+  if (!gameStarted && ['w', 'a', 's', 'd'].includes(key)) {
     start();
     gameStarted = true;
-  }
-
-
-
-  if (gameLoop === null && ['w', 'a', 's', 'd'].includes(key)) {
-    direction_ = key === 'w' ? 'cima' : key === 's' ? 'baixo' : key === 'a' ? 'esquerda' : 'direita';
-    gameLoop = setInterval(update, 100);
   }
 
   if (['w', 'a', 's', 'd'].includes(key)) {
     direction_ = key === 'w' && direction !== 'baixo' ? 'cima' :
       key === 's' && direction !== 'cima' ? 'baixo' :
-        key === 'a' && direction !== 'direita' ? 'esquerda' :
-          key === 'd' && direction !== 'esquerda' ? 'direita' : direction;
+      key === 'a' && direction !== 'direita' ? 'esquerda' :
+      key === 'd' && direction !== 'esquerda' ? 'direita' : direction;
   }
 });
 
@@ -80,7 +71,7 @@ document.addEventListener('keydown', event => {
 function update() {
   // Move a cabeça da cobra
   direction = direction_;
-  snake.body.push({ x: snake.head.x, y: snake.head.y});
+  snake.body.push({ x: snake.head.x, y: snake.head.y });
   switch (direction) {
     case 'esquerda':
       snake.head.x--;
@@ -117,32 +108,31 @@ function update() {
   if (snake.head.x === food.x && snake.head.y === food.y) {
     // A cobra cresce
     // Gera uma nova posição para a comida
-    snake.size++
+    snake.size++;
     food = {
       x: parseInt(Math.random() * columns),
       y: parseInt(Math.random() * rows)
     };
 
-
-    while(verifyBody()){
+    while (verifyBody()) {
       food = {
         x: parseInt(Math.random() * columns),
         y: parseInt(Math.random() * rows)
       };
     }
 
-    function verifyBody(){
-    let answer = false
+    function verifyBody() {
+      let answer = false;
       for (let i = 0; i < snake.body.length; i++) {
         if (food.x === snake.body[i].x && food.y === snake.body[i].y) {
-          answer = true
+          answer = true;
         }
       }
-      return answer
+      return answer;
     }
 
     drawBlock(food.x, food.y, f_color);
-    
+
   } else {
     // Se não, remove o bloco da cauda
     let tail = snake.body.shift();
@@ -152,10 +142,9 @@ function update() {
 
 // Loop principal do jogo
 function start() {
-  
   // Posição inicial da cobra
-  x_ = parseInt(Math.random() * columns);
-  y_ = parseInt(Math.random() * rows);
+  let x_ = parseInt(Math.random() * columns);
+  let y_ = parseInt(Math.random() * rows);
   snake = {
     head: { x: x_, y: y_ },
     body: [],
@@ -182,49 +171,32 @@ function gameOver() {
   ctx.font = '24px Quicksand';
   ctx.textAlign = 'center';
   ctx.fillText('Game Over!', canvasWidth / 2, canvasHeight / 2);
-  gameStarted = false
+  gameStarted = false;
 }
 
 canvas.addEventListener('touchstart', handleTouch, false);
 const rect = canvas.getBoundingClientRect();
-const x_ref = rect.width/3;
-const y_ref = rect.height/3;
+const x_ref = rect.width / 3;
+const y_ref = rect.height / 3;
 
 function handleTouch(event) {
   event.preventDefault();
   const touch = event.touches[0];
-  const x = touch.clientX-rect.left;
-  const y = touch.clientY-rect.top;
+  const x = touch.clientX - rect.left;
+  const y = touch.clientY - rect.top;
+  
+  if (!gameStarted) {
+    gameStarted = true;
+    start();
+  }
+
   if ((x > x_ref && x < x_ref * 2) && (y > y_ref * 2) && direction !== "cima") {
-      direction_ = "baixo";
-      if (!gameStarted) {
-        gameStarted = true;
-        start();
-      }
-      console.log('baixo')
-  }
-  if ((x > x_ref && x < x_ref * 2) && (y < y_ref) && direction !== "baixo") {
-      direction_ = "cima";
-      if (!gameStarted) {
-        gameStarted = true;
-        start(); 
-      }
-      console.log('cima')
-  }
-  if ((y > y_ref && y < y_ref * 2) && (x < x_ref) && direction !== "direita") {
-      direction_ = "esquerda";
-      if (!gameStarted) {
-        gameStarted = true;  
-        start();
-      }
-      console.log('direita')
-  }
-  if ((y > y_ref && y < y_ref * 2) && (x > x_ref * 2) && direction !== "esquerda") {
-      direction_ = "direita";
-      if (!gameStarted) {
-        gameStarted = true;
-        start();
-      }
-      console.log('esquerda')
+    direction_ = "baixo";
+  } else if ((x > x_ref && x < x_ref * 2) && (y < y_ref) && direction !== "baixo") {
+    direction_ = "cima";
+  } else if ((y > y_ref && y < y_ref * 2) && (x < x_ref) && direction !== "direita") {
+    direction_ = "esquerda";
+  } else if ((y > y_ref && y < y_ref * 2) && (x > x_ref * 2) && direction !== "esquerda") {
+    direction_ = "direita";
   }
 }
