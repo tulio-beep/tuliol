@@ -3,7 +3,7 @@ const ctx = canvas.getContext("2d");
 
 // Defina o tamanho do canvas
 const canvasWidth = (canvas.width = window.innerWidth);
-const canvasHeight = (canvas.height = window.innerHeight);
+const canvasHeight = (canvas.height = window.innerHeight*0.8);
 
 // Defina o tamanho do bloco
 const blockSize = 20;
@@ -38,7 +38,7 @@ function clearBlock(col, row,) {
 ctx.fillStyle = 'white';
 ctx.font = '24px Quicksand';
 ctx.textAlign = 'center';
-ctx.fillText('Pressione WASD para iniciar.', canvasWidth / 2, canvasHeight / 2);
+ctx.fillText('Pressione WASD ou Toque para iniciar.', canvasWidth / 2, canvasHeight / 2);
 
 //Cor da Cobra
 const s_color = 'white';
@@ -54,11 +54,14 @@ gameStarted = false
 
 // Listener de teclado
 document.addEventListener('keydown', event => {
-  if (!gameStarted) {
+  const key = event.key.toLowerCase();
+
+  if (!gameStarted && (['w', 'a', 's', 'd'].includes(key))) {
     start();
     gameStarted = true;
   }
-  const key = event.key.toLowerCase();
+
+
 
   if (gameLoop === null && ['w', 'a', 's', 'd'].includes(key)) {
     direction_ = key === 'w' ? 'cima' : key === 's' ? 'baixo' : key === 'a' ? 'esquerda' : 'direita';
@@ -180,4 +183,48 @@ function gameOver() {
   ctx.textAlign = 'center';
   ctx.fillText('Game Over!', canvasWidth / 2, canvasHeight / 2);
   gameStarted = false
+}
+
+canvas.addEventListener('touchstart', handleTouch, false);
+const rect = canvas.getBoundingClientRect();
+const x_ref = rect.width/3;
+const y_ref = rect.height/3;
+
+function handleTouch(event) {
+  event.preventDefault();
+  const touch = event.touches[0];
+  const x = touch.clientX-rect.left;
+  const y = touch.clientY-rect.top;
+  if ((x > x_ref && x < x_ref * 2) && (y > y_ref * 2) && direction !== "cima") {
+      direction_ = "baixo";
+      if (!gameStarted) {
+        gameStarted = true;
+        start();
+      }
+      console.log('baixo')
+  }
+  if ((x > x_ref && x < x_ref * 2) && (y < y_ref) && direction !== "baixo") {
+      direction_ = "cima";
+      if (!gameStarted) {
+        gameStarted = true;
+        start(); 
+      }
+      console.log('cima')
+  }
+  if ((y > y_ref && y < y_ref * 2) && (x < x_ref) && direction !== "direita") {
+      direction_ = "esquerda";
+      if (!gameStarted) {
+        gameStarted = true;  
+        start();
+      }
+      console.log('direita')
+  }
+  if ((y > y_ref && y < y_ref * 2) && (x > x_ref * 2) && direction !== "esquerda") {
+      direction_ = "direita";
+      if (!gameStarted) {
+        gameStarted = true;
+        start();
+      }
+      console.log('esquerda')
+  }
 }
