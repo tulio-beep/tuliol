@@ -185,6 +185,7 @@ function update() {
 
 // Loop principal do jogo
 function start() {
+  document.getElementById("tittle").innerText = "Snake"
   // Posição inicial da cobra
   x_ = parseInt(Math.random() * columns);
   y_ = parseInt(Math.random() * rows);
