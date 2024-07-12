@@ -155,7 +155,7 @@ function update() {
     // A cobra cresce
     // Gera uma nova posição para a comida
     pontuacao += 10;
-    tittle.innerText = `Snake - Pontuação: ${pontuacao}`;
+    tittle.innerText = `SNAKE - Pontuação: ${pontuacao}`;
     snake.size++;
     food = {
       x: parseInt(Math.random() * columns),
@@ -189,7 +189,7 @@ function update() {
 
 // Loop principal do jogo
 function start() {
-  document.getElementById("tittle").innerText = "Snake"
+  document.getElementById("tittle").innerText = "SNAKE"
   // Posição inicial da cobra
   x_ = parseInt(Math.random() * columns);
   y_ = parseInt(Math.random() * rows);
