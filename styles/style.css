@@ -13,9 +13,9 @@ a {
 
 
 
-.emoji{
-    margin-left: 5px;
-    height: 1.3em;
+.emoji {
+  margin-left: 5px;
+  height: 1.3em;
 }
 
 .list {
@@ -28,11 +28,13 @@ a {
 }
 
 p,
-h5,h4, .list {
+h5,
+h4,
+.list {
   font-size: 14px;
 }
 
-li:hover .list{
+li:hover .list {
   left: -15px;
   margin-top: 10px;
   display: block;
@@ -41,7 +43,7 @@ li:hover .list{
   z-index: 1;
 }
 
-.list:hover{
+.list:hover {
   left: -15px;
   margin-top: 10px;
   display: block;
@@ -65,14 +67,14 @@ li:hover .list ul li:hover a {
   color: #4c00ff;
 }
 
-ul h5:hover ~ .list {
+ul h5:hover~.list {
   display: block;
   position: absolute;
   padding: 10px;
   z-index: 1;
 }
 
-ul h5:hover ~ .list * {
+ul h5:hover~.list * {
   padding: 3px;
 }
 
@@ -85,7 +87,7 @@ body {
   background-color: #181930;
 }
 
-h3, 
+h3,
 h2 {
   padding-top: 20px;
   margin-bottom: 10px;
@@ -122,7 +124,7 @@ section#adress {
   margin-top: 15px;
 }
 
-nav > ul > li {
+nav>ul>li {
   font-weight: 900;
   display: inline-block;
   padding: 20px;
@@ -130,28 +132,29 @@ nav > ul > li {
   height: 100%;
 }
 
-.list  {
-    font-size: 2.5vmin;
+.list {
+  font-size: 2.5vmin;
 }
 
 
-nav > ul > li:hover {
+nav>ul>li:hover {
   background-color: #0d0a14;
 }
 
-nav > ul > li:hover a {
+nav>ul>li:hover a {
   color: #ffffff;
 }
 
-nav > ul > li > a {
+nav>ul>li>a {
   color: #0d0a14;
 }
 
-nav > ul {
+nav>ul {
   display: flex;
   align-items: center;
   width: fit-content;
-  margin: 0 auto; /* This will center the ul horizontally */
+  margin: 0 auto;
+  /* This will center the ul horizontally */
   position: relative;
 }
 
@@ -164,7 +167,7 @@ nav {
   border-width: 1px;
 }
 
-nav > ul > li > ul {
+nav>ul>li>ul {
   display: none;
 }
 
@@ -173,7 +176,7 @@ footer {
   background-color: white;
 }
 
-footer p{
+footer p {
   text-align: center;
   color: #000;
 }
@@ -234,16 +237,20 @@ h1 {
 }
 
 p,
-h5,h4 {
+h5,
+h4 {
   font-size: 3vmin;
 }
-h2,h3, nav {
+
+h2,
+h3,
+nav {
   font-size: 4vmin;
 }
 
 .container {
-    margin-top: auto;
-    margin-bottom: auto;
+  margin-top: auto;
+  margin-bottom: auto;
   padding-left: 30px;
   padding-right: 30px;
   display: flex;
@@ -251,26 +258,26 @@ h2,h3, nav {
   align-items: center;
 }
 
-svg{
-    position: absolute;
+svg {
+  position: absolute;
 }
 
-.container .candy{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    width: calc(35vw + 30px);
-    opacity: 50%;
-    height: auto;
+.container .candy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: calc(35vw + 30px);
+  opacity: 50%;
+  height: auto;
 }
 
 @media (max-width: 700px) {
-    .container .candy{
-        width: 100%;
-        left:0;
-        opacity: 15%;
-    }
+  .container .candy {
+    width: 100%;
+    left: 0;
+    opacity: 15%;
+  }
 }
 
 
@@ -295,8 +302,11 @@ svg{
     padding-right: 0px;
   }
 
-  p,nav, 
-  h5,h4,.list {
+  p,
+  nav,
+  h5,
+  h4,
+  .list {
     font-size: 15px;
   }
 
@@ -304,7 +314,8 @@ svg{
     font-size: 26px;
   }
 
-  h2,h3{
+  h2,
+  h3 {
     font-size: 20px;
   }
 
@@ -343,7 +354,9 @@ svg{
   }
 
   p,
-  h5, h4, .list {
+  h5,
+  h4,
+  .list {
     font-size: 12px;
   }
 
@@ -351,7 +364,8 @@ svg{
     font-size: 14px;
   }
 
-  h2,h3 {
+  h2,
+  h3 {
     font-size: 18px;
   }
 
@@ -366,14 +380,15 @@ svg{
   background-color: #4c00ff;
 }
 
-#canvas{
-    margin-top: 10px;
-    width: 100%;
-    height: 80%;
-    background-color:#3a3c75;
-    border-style: solid;
-    border-width: 1px;
+#canvas {
+  margin-top: 10px;
+  width: 100%;
+  height: 80%;
+  background-color: #3a3c75;
+  border-style: solid;
+  border-width: 1px;
 }
+
 :is(h2, h3, h4, h5, h6, p, img) {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
@@ -385,33 +400,36 @@ svg{
 @keyframes fade-in {
   from {
     opacity: 0;
-    scale: 0.9; /* Começa deslocado para baixo */
+    scale: 0.9;
+    /* Começa deslocado para baixo */
   }
+
   to {
     opacity: 1;
-    scale: 1; /* Movimenta-se para a posição original */
+    scale: 1;
+    /* Movimenta-se para a posição original */
   }
 }
 
-#portcontainer{
+#portcontainer {
   margin: 10px;
   padding: 10px;
   display: inline-block;
   border-style: solid;
   border-color: white;
-  border-width: 1px;  
+  border-width: 1px;
 }
 
-#portcontainer a p{
+#portcontainer a p {
   text-align: center;
   font-weight: 500;
 }
 
-#portcontainer:hover{
+#portcontainer:hover {
   background-color: #ffffff;
 }
 
-#portcontainer:hover a p{
-  color: #000;
+#portcontainer:hover a p {
+  color: black;
   font-weight: 500;
 }
