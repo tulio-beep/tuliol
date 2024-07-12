@@ -66,7 +66,9 @@ gameStarted = false;
 // Listeners de teclado
 document.addEventListener("keyup", (event) => {
   const key = event.key.toLowerCase();
-  document.getElementById(key).style.opacity="20%"
+  if(["w", "a", "s", "d"].includes(key)){
+    document.getElementById(key).style.opacity="20%"
+  }
 })
 
 document.addEventListener("keydown", (event) => {
@@ -77,7 +79,9 @@ document.addEventListener("keydown", (event) => {
     gameStarted = true;
   }
 
-  document.getElementById(key).style.opacity="80%"
+  if(["w", "a", "s", "d"].includes(key)){
+   document.getElementById(key).style.opacity="80%"
+  }
 
   if (gameLoop === null && ["w", "a", "s", "d"].includes(key)) {
     direction_ =
