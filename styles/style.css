@@ -392,3 +392,26 @@ svg{
     scale: 1; /* Movimenta-se para a posição original */
   }
 }
+
+#portcontainer{
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;  
+}
+
+#portcontainer a p{
+  text-align: center;
+  font-weight: 500;
+}
+
+#portcontainer:hover{
+  background-color: #ffffff;
+}
+
+#portcontainer:hover a p{
+  color: #000;
+  font-weight: 500;
+}

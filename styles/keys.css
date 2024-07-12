@@ -1,0 +1,52 @@
+#keys {
+    position: fixed;
+    bottom: 10%;
+    right: 0;
+    margin: 10px;
+    opacity: 20%;
+}
+
+.layer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#up {
+    width: 75px;
+    height: 75px;
+    background-color: white;
+    margin-bottom: 5px;
+    color: black;
+    font-size: 15pt;
+}
+
+#left, #down, #right {
+    width: 75px;
+    height: 75px;
+    background-color: white;
+    color: black;
+    font-size: 15pt;
+}
+
+#left {
+    margin-right: 5px;
+}
+
+#down {
+    margin-right: 5px;
+}
+
+#return{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+#return:hover{
+    background-color: white;
+}
+
+#return:hover a p{
+    color:black;
+}
