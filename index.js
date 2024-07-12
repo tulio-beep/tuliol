@@ -63,7 +63,12 @@ let gameLoop = null;
 
 gameStarted = false;
 
-// Listener de teclado
+// Listeners de teclado
+document.addEventListener("keyup", (event) => {
+  const key = event.key.toLowerCase();
+  document.getElementById(key).style.opacity="20%"
+})
+
 document.addEventListener("keydown", (event) => {
   const key = event.key.toLowerCase();
 
@@ -71,6 +76,8 @@ document.addEventListener("keydown", (event) => {
     start();
     gameStarted = true;
   }
+
+  document.getElementById(key).style.opacity="80%"
 
   if (gameLoop === null && ["w", "a", "s", "d"].includes(key)) {
     direction_ =
@@ -211,6 +218,16 @@ function gameOver() {
   pontuacao = 0;
 }
 
+
+document.addEventListener("touchend", dishandleTouch, false);
+
+function dishandleTouch(event){
+  document.getElementById('w').style.opacity = "20%"
+  document.getElementById('a').style.opacity = "20%"
+  document.getElementById('s').style.opacity = "20%"
+  document.getElementById('d').style.opacity = "20%"
+}
+
 document.addEventListener("touchstart", handleTouch, false);
 
 function handleTouch(event) {
@@ -227,17 +244,18 @@ function handleTouch(event) {
         : "direita";
   }
 
+  document.getElementById(element.id).style.opacity = "80%"
+
   direction_ =
-  element.id === "up" && direction !== "baixo"
+  element.id === "w" && direction !== "baixo"
     ? "cima"
-    : element.id === "down" && direction !== "cima"
+    : element.id === "s" && direction !== "cima"
     ? "baixo"
-    : element.id === "left" && direction !== "direita"
+    : element.id === "a" && direction !== "direita"
     ? "esquerda"
-    : element.id === "right" && direction !== "esquerda"
+    : element.id === "d" && direction !== "esquerda"
     ? "direita"
     : direction;
-
 
     if (!gameStarted && direction_) {
       start();

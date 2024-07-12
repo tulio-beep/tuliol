@@ -3,7 +3,6 @@
     bottom: 10%;
     right: 0;
     margin: 10px;
-    opacity: 20%;
 }
 
 .layer {
@@ -12,28 +11,30 @@
     align-items: center;
 }
 
-#up {
+#w {
     width: 75px;
     height: 75px;
     background-color: white;
     margin-bottom: 5px;
     color: black;
     font-size: 15pt;
+    opacity: 20%;
 }
 
-#left, #down, #right {
+#a, #s, #d {
     width: 75px;
     height: 75px;
     background-color: white;
     color: black;
     font-size: 15pt;
+    opacity: 20%;
 }
 
-#left {
+#a {
     margin-right: 5px;
 }
 
-#down {
+#s {
     margin-right: 5px;
 }
 
